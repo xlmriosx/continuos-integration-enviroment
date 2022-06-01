@@ -1,7 +1,9 @@
-from main import additon_array # missing-module-docstring
+'''test.py'''
+
+from main import additon_array
 
 def test_additon_array():
     '''
     This is a docstring
     '''
-    assert additon_array([1,2,3]) == 6 # missing-module-docstring
+    assert additon_array([1,2,3]) == 6 
