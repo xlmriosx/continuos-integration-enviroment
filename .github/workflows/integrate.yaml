@@ -37,3 +37,7 @@ jobs:
           rc-wording:     'RELEASE,alpha'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: 'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
