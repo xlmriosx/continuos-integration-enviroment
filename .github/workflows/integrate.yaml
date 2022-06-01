@@ -27,17 +27,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-    - name: Automated Version Bump
-        id: version-bump
-        uses: 'phips28/gh-action-bump-version@main'
-        with:
-          minor-wording:  'add,Adds,new,added'
-          major-wording:  'MAJOR,cut-major'
-          patch-wording:  'patch,fixes,fixed,patched'
-          rc-wording:     'RELEASE,alpha'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: 'Output Step'
-        env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-        run: echo "new tag $NEW_TAG"
+
