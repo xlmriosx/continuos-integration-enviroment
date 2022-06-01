@@ -5,6 +5,6 @@ def additon_array(array):
     result = 0
     for i in array:
         result += i
-    return result
+    return result # missing-module-docstring
 
 #Link: https://ellibrodepython.com/python-testing
