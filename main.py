@@ -1,4 +1,4 @@
-"""System module."""
+"""Function module."""
 def additon_array(array):
     '''
     This is a docstring
