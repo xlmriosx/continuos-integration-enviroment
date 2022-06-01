@@ -1,3 +1,4 @@
+"""System module."""
 def additon_array(array):
     '''
     This is a docstring
@@ -5,6 +6,6 @@ def additon_array(array):
     result = 0
     for i in array:
         result += i
-    return result # missing-module-docstring
+    return result
 
 #Link: https://ellibrodepython.com/python-testing

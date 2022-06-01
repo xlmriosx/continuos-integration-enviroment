@@ -1,4 +1,4 @@
-from main import additon_array
+from main import additon_array # missing-module-docstring
 
 def test_additon_array():
     '''
