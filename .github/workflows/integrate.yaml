@@ -27,9 +27,9 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-    - name: 'Automated Version Bump'
+    - name: Automated Version Bump
         id: version-bump
-        uses: 'phips28/gh-action-bump-version@master'
+        uses: 'phips28/gh-action-bump-version@main'
         with:
           minor-wording:  'add,Adds,new,added'
           major-wording:  'MAJOR,cut-major'
