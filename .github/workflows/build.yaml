@@ -35,7 +35,7 @@ jobs:
         git push heroku HEAD:main -f
     - name: Automated Version Bump
         id: version-bump
-        uses: phips28/gh-action-bump-version@master
+        uses: 'phips28/gh-action-bump-version@master'
         with:
           minor-wording:  'add,Adds,new,added'
           major-wording:  'MAJOR,cut-major'
