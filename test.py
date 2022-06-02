@@ -1,6 +1,6 @@
 '''test.py'''
 
-from main import index
+from src.main import index
 
 def test_index():
     '''
