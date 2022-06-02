@@ -25,10 +25,6 @@ jobs:
       run: |
         export PYTHONPATH=src
         pytest tests/test.py
-    - name: Analysing the code with pylint
-      run: |
-        pylint src/app.py
-        pylint tests/test.py
     - name: Deploying app in Heroku
       env:
         HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
