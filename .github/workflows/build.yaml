@@ -19,11 +19,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pylint pytest flask 
+        pip install pylint pytest flask gunicorn
     - name: Running unit tests with pytest
       run: |
         pytest test.py
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-
+    - name: Deploying app in Heroku
+      env:
+        HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
+        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+      if: github.ref == 'refs/heads/main' && job.status == 'success'
+      run: |
+        git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git      
+        git push heroku HEAD:main -f
