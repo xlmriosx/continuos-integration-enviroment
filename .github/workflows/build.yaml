@@ -33,4 +33,19 @@ jobs:
       run: |
         git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_DOMAIN_APP.git      
         git push heroku HEAD:main -f
+    - name: 'Automated Version Bump'
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          minor-wording:  'add,Adds,new,added'
+          major-wording:  'MAJOR,cut-major'
+          patch-wording:  'patch,fixes,fixed,patched'
+          rc-wording:     'RELEASE,alpha'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: 'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
+    
  
