@@ -42,7 +42,7 @@ jobs:
           patch-wording:  'patch,fixes,fixed,patched'
           rc-wording:     'RELEASE,alpha'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
     - name: 'Output Step'
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
