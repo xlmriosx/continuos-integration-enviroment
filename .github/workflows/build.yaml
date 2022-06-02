@@ -24,6 +24,7 @@ jobs:
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
+        export PYTHONPATH=src
         pylint tests/test.py
     - name: Running unit tests with pytest
       run: |
