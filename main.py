@@ -1,11 +1,11 @@
-"""Function module."""
-def additon_array(array):
-    '''
-    This is a docstring
-    '''
-    result = 0
-    for i in array:
-        result += i
-    return result
+from flask import Flask
 
-#Link: https://ellibrodepython.com/python-testing
+app = Flask(__name__)
+
+@app.route("/")
+def index():    
+    return "hello continuos world"
+
+if __name__ == "__main__":
+    app.run()
+    
