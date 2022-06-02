@@ -27,7 +27,6 @@ jobs:
         pytest tests/test.py
     - name: Analysing the code with pylint
       run: |
-# pylint $(git ls-files '*.py')
         pylint src/app.py
         pylint tests/test.py
     - name: Deploying app in Heroku
