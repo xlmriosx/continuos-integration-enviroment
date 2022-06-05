@@ -6,4 +6,4 @@ def test_index():
     '''
     This is a docstring
     '''
-    assert index()=="<p>hello continuos world</p>"
+    assert index()=="p>hello continuos world</p>"
