@@ -22,15 +22,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Running syntax tests with pylint
+      id: pylint
       run: |
         pylint src/app.py
         export PYTHONPATH=src
         pylint tests/test.py
+      continue-on-error: true
     - name: Running unit tests with pytest
+      id: pytest
       run: |
         export PYTHONPATH=src
         pytest tests/test.py
+      continue-on-error: true
     - name: Deploying app in Heroku
+      id: heroku
       env:
         HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
         HEROKU_DOMAIN_APP: ${{ secrets.HEROKU_DOMAIN_APP }}
@@ -38,6 +43,10 @@ jobs:
       run: |
         git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_DOMAIN_APP.git      
         git push heroku HEAD:main -f
-    
+      continue-on-error: true
+    - name: Check on failures
+        if: steps.pylint.outcome != 'success' || steps.pytest.outcome != 'success' || steps.heroku.outcome != 'success'
+
+        run: exit 1
     
  
