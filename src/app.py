@@ -9,7 +9,7 @@ def index():
     '''
     This is a docstring
     '''
-    return "<p>hello continuos world</p>"
+    return "<h1>hello continuos world</h1>"
 
 if __name__ == "__main__":
     app.run()
