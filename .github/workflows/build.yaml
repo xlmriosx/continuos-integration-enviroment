@@ -21,9 +21,8 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         conda create --name env
-        conda env activate
-        pip install -r requirements.txt
         conda activate env
+        pip install -r requirements.txt
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
