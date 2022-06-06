@@ -1,6 +1,6 @@
 # Creating CI/CD Pipeline for Python Project using
 
-[![Continuos Integration of Python Code](https://github.com/xlmriosx/continuos-integration-enviroment/actions/workflows/build.yaml/badge.svg)](https://github.com/xlmriosx/continuos-integration-enviroment/actions/workflows/build.yaml)
+[![CI Python](https://github.com/xlmriosx/continuos-integration-enviroment/actions/workflows/build.yaml/badge.svg)](https://github.com/xlmriosx/continuos-integration-enviroment/actions/workflows/build.yaml)
 
 # Continuos Integration - Enviroment - Resume
 
