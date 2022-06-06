@@ -21,4 +21,26 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install dependencies
+      run: |
+        conda env update --file requeriments.yml --name base
+    - name: Running syntax tests with pylint
+      run: |
+        pylint src/app.py
+        export PYTHONPATH=src
+        pylint tests/test.py
+    - name: Running unit tests with pytest
+      run: |
+        export PYTHONPATH=src
+        pytest tests/test.py
+    - name: Deploying app in Heroku
+      env:
+        HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
+        HEROKU_DOMAIN_APP: ${{ secrets.HEROKU_DOMAIN_APP }}
+      if: github.ref == 'refs/heads/main' && job.status == 'success'
+      run: |
+        git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$HEROKU_DOMAIN_APP.git      
+        git push heroku HEAD:main -f
+    
+    
  
