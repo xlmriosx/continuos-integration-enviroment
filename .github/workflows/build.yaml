@@ -23,6 +23,7 @@ jobs:
         conda create --name env
         conda env activate
         pip install -r requirements.txt
+        conda activate env
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
