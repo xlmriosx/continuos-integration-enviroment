@@ -23,7 +23,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Create enviroment conda and Install dependencies
       run: |
-        conda env create -f ./environment.yml
+        conda env create -f ./enviroment.yml
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
