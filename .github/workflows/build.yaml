@@ -20,8 +20,9 @@ jobs:
     - name: Install dependencies
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
-        $CONDA/bin/conda env create --file requirements.yml --name base
-        
+        conda create --name env
+        conda env activate
+        pip install -r requirements.txt
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
