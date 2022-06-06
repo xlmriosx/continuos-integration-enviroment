@@ -24,6 +24,7 @@ jobs:
     - name: Create enviroment conda and Install dependencies
       run: |
         ls
+        pwd
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
