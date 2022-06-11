@@ -24,12 +24,10 @@ jobs:
     - name: Running syntax tests with pylint
       run: |
         pylint src/app.py
-        export PYTHONPATH=src
-        pylint tests/test.py
+        pylint src/test.py
     - name: Running unit tests with pytest
       run: |
-        export PYTHONPATH=src
-        pytest tests/test.py
+        pytest src/test.py
     - name: Deploying app in Heroku
       env:
         HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
